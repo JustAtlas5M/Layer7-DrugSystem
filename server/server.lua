@@ -3,22 +3,22 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 local Config = Config or {}
 
--- Function to check if player is a coke plug
+-- check if player is a coke plug
 function isCokePlug(player)
     return player.getGroup() == Config.CokePlugPermission
 end
 
--- Function to check if player is a VIP
+-- check if player is a VIP
 function isVIP(player)
     return player.getGroup() == Config.VIPPermission
 end
 
--- Function to check if player has cocaine in inventory
+--  check if player has cocaine in inventory
 function hasCocaine(player)
     return player.getInventoryItem(Config.CocaineItem).count > 0
 end
 
--- Function to handle crafting bricks
+--  handle crafting bricks
 RegisterServerEvent('craftBrick')
 AddEventHandler('craftBrick', function()
     local _source = source
@@ -30,7 +30,7 @@ AddEventHandler('craftBrick', function()
     end
 end)
 
--- Function to handle turning in bricks to NPC
+--  handle turning in bricks to NPC
 RegisterServerEvent('turnInBrick')
 AddEventHandler('turnInBrick', function(npc)
     local _source = source
@@ -46,14 +46,14 @@ AddEventHandler('turnInBrick', function(npc)
     end
 end)
 
--- Event handler for entering the coke lab
+--  handler for entering the coke lab
 RegisterServerEvent('enterCokeLab')
 AddEventHandler('enterCokeLab', function()
     local _source = source
     TriggerClientEvent('enterCokeLab', _source)
 end)
 
--- Event handler for leaving the coke lab
+--  handler for leaving the coke lab
 RegisterServerEvent('leaveCokeLab')
 AddEventHandler('leaveCokeLab', function()
     local _source = source
